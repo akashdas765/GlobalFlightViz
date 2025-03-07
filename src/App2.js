@@ -47,7 +47,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/airports')
+    fetch('https://globalflightviz.onrender.com/airports')
       .then(response => response.json())
       .then(data => data.map(airport => ({ ...airport, type: 'airport' })))
       .then(data => {
@@ -58,7 +58,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/volcanoes')
+    fetch('https://globalflightviz.onrender.com/volcanoes')
       .then(response => response.json())
       .then(data => data.map(volcano => ({ ...volcano, type: 'volcano' })))
       .then(data => {
@@ -75,7 +75,7 @@ function App() {
 
   useEffect(() => {
     // Example API call to fetch airlines
-    fetch('http://127.0.0.1:8000/airline')
+    fetch('https://globalflightviz.onrender.com/airline')
         .then(res => res.json())
         .then(data => setAirlines(data))
         .catch(err => console.error('Failed to load airlines', err));
