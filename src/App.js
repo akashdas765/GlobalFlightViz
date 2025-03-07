@@ -48,7 +48,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/airports')
+    fetch('https://globalflightviz.onrender.com/airports')
       .then(response => response.json())
       .then(data => data.map(airport => ({ ...airport, type: 'airport' })))
       .then(data => {
@@ -59,7 +59,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/volcanoes')
+    fetch('https://globalflightviz.onrender.com/volcanoes')
       .then(response => response.json())
       .then(data => data.map(volcano => ({ ...volcano, pulse: true, type: 'volcano' })))
       .then(data => {
@@ -77,7 +77,7 @@ function App() {
 
   useEffect(() => {
     // Example API call to fetch airlines
-    fetch('http://127.0.0.1:8000/airline')
+    fetch('https://globalflightviz.onrender.com/airline')
         .then(res => res.json())
         .then(data => setAirlines(data))
         .catch(err => console.error('Failed to load airlines', err));
@@ -144,7 +144,7 @@ function App() {
 
   const handleAirportClick = (airport) => {
     setSelectedAirport(airport);
-    fetch(`http://localhost:8000/flight-data?airportId=${airport.index}`)
+    fetch(`https://globalflightviz.onrender.com/flight-data?airportId=${airport.index}`)
       .then(response => response.json())
       .then(data => {
         setFlightPaths(data);
@@ -154,7 +154,7 @@ function App() {
 
   const handleVolcanoClick = (volcano) => {
     setSelectedVolcanoes(volcano);
-    fetch(`http://localhost:8000/volc-data?volcId=${volcano.index}`)
+    fetch(`https://globalflightviz.onrender.com/volc-data?volcId=${volcano.index}`)
       .then(response => response.json())
       .then(data => {
         setSelectedVolcanoes(data);
