@@ -16,7 +16,7 @@ def clean(df):
     df.dropna(inplace=True)
     return df
 
-base_path = '/Users/akashdas/Desktop/IU MS DS FALL 2023/SEMESTER 3 - FALL 2024/DATA VISUALIZATION/Project/globe/dataset/'
+base_path = './dataset/'
 airlines = pd.read_csv(base_path+'airlines.csv')
 airplanes = pd.read_csv(base_path+'airplanes.csv')
 airport = pd.read_csv(base_path+'airports.csv')
@@ -200,5 +200,6 @@ def volc_data():
     print(f'Skipped {c} invalid Volcanoes')
     return jsonify(volca_data[0])
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Use Render's assigned port
+    app.run(host="0.0.0.0", port=port)
